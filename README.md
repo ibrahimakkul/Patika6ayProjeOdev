@@ -1,0 +1,2 @@
+# Patika6ayProjeOdev
+Ödevler
