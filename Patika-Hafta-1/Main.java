@@ -1,44 +1,29 @@
 import java.util.Scanner;
 
 public class Main {
-public static void main(String[] args) {
-Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] dersler = {"Matematik", "Fizik", "Türkçe", "Kimya", "Müzik"};
+        int[] notlar = new int[5];
+        double toplamNot = 0;
+        int gecmeNotu = 55;
+        int gecenDersSayisi = 0;
 
-    
-    String password = "password123";
-    
-    
-    System.out.print("Lütfen şifrenizi girin: ");
-    String userPassword = input.nextLine();
-    
-    
-    if (userPassword.equals(password)) {
-        System.out.println("Giriş başarili!");
-    } 
-   
-    else {
-        System.out.println("Şifre yanliş!");
-        
-       
-        System.out.print("Şifrenizi sifirlamak ister misiniz? (E/H): ");
-        String resetChoice = input.nextLine();
-        
-        
-        if (resetChoice.equalsIgnoreCase("E")) {
-            System.out.print("Yeni şifrenizi girin: ");
-            String newPassword = input.nextLine();
-            
-            
-            if (newPassword.equals(userPassword)) {
-                System.out.println("Şifre oluşturulamadi, lütfen başka şifre giriniz.");
-            } else {
-                System.out.println("Şifre oluşturuldu.");
+        for (int i = 0; i < dersler.length; i++) {
+            System.out.print(dersler[i] + " notunuzu girin: ");
+            int not = scanner.nextInt();
+            if (not >= 0 && not <= 100) {
+                toplamNot += not;
+                gecenDersSayisi++;
             }
+            notlar[i] = not;
+        }
+
+        double ortalama = toplamNot / gecenDersSayisi;
+        if (gecenDersSayisi > 0 && ortalama >= gecmeNotu) {
+            System.out.println("Tebrikler, sinifi geçtiniz!");
+        } else {
+            System.out.println("Maalesef sinifta kaldiniz.");
         }
     }
 }
-}
-
-
-
-
